@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://raw.githubusercontent.com/kachbit/JSCDN/main/jscolor.js"></script>
+<style id="style2">
+</style>
+<script>
+
+var count = 1;
+var counter2 = 0;
+function newText() {
+    
+    
+    
+    var elem = document.createElement("button");
+    elem.style.backgroundColor = "white";
+    elem.innerHTML = "text " + count++;
+    elem.style.outline = "1.5px solid";
+    elem.style.marginBottom = "5px";
+    elem.contentEditable = true;
+    elem.style.outline = "0px grey solid";
+    elem.style.border = "1px grey solid"
+    elem.style.borderRadius = "5px";
+    document.getElementById("elems").appendChild(elem);
+    // elem.onclick = elem.style.backgroundColor = "black";
+
+
+    
+  var elem1 = document.createElement("div");
+  var fontsize1 = document.getElementById("textSize").value + "px";
+  elem1.style.fontSize = fontsize1;
+  elem1.style.color = document.getElementById("textColor").value;
+  elem1.style.backgroundColor = document.getElementById("bgColor").value;
+  console.log(document.getElementById("textmargin").value);
+  elem1.style.margin = document.getElementById("textmargin").value;
+  elem1.style.padding = document.getElementById("textpadding").value;
+  
+  
+   function switchColor() {
+                // IMPORTANT!!: ONLY FOR TEXT
+    counter2++;
+    
+    if (counter2 & 1){
+        // IMPORTANT!!: ONLY FOR TEXT
+        elem1.style.border = "2px #3399FF solid";
+        elem1.className = "removeable";
+        elem.className = "removeable";
+        // br1.className = "removeable";
+        // br1.onclick = "removeable";
+        console.log("turn blue check");
+        document.getElementById("clear").addEventListener("click", function() {
+        console.log("remove click check");
+        var rmb = document.querySelectorAll('.removeable');
+
+
+
+$(".removeable").remove();
+console.log("shouldve remove check");
+
+                });
+        
+    } else{
+        elem1.style.border = "";
+        elem1.className = "";
+    }
+}
+    elem1.className = "added";
+    elem1.addEventListener("click", switchColor);
+    elem1.style.borderRadius = "8px";
+    elem1.id = "debugid";
+    
+   
+  // document.getElementById("bgColor").value + ")";
+  
+//   elem1.style.backgroundColor = document.getElementById("alpha").value;
+  document.getElementById("output").appendChild(elem1);
+    elem1.textContent = document.getElementById("textValue").value;
+    elem1.style.margin = document.getElementById("textmargin").value;
+    elem1.style.padding = document.getElementById("textpadding").value;
+    elem1.classList.add("ccss");
+    console.log(elem1);
+    document.getElementById("style2").innerHTML = ".ccss {" + document.getElementById("ccss").value + "}";
+    console.log(document.getElementById("style2").innerHTML);
+    //last:
+    // if (document.getElementById("ccss").value && !myString.trim()) {
+    //     if (document.getElementById("ccss").value = "")
+    // //First condition to check if string is not empty
+    // //Second condition checks if string contains just whitespace
+    // }
+      
+    
+
+
+    
+    var codearray = document.getElementById("output").innerHTML;
+    document.getElementById("gencode").addEventListener("click", function() {
+     var codearray = document.getElementById("output").innerHTML;
+     codearray = codearray.replace(/(\r\n|\n|\r)/gm, "");
+     document.getElementById("outputcode").innerHTML = codearray;
+});
+
+
+// document.getElementById("remove").addEventListener("click", function() {
+//              document.getElementById("elems").removeChild(elem);
+
+// });
+
+    //  elem1.contentEditable = "true";
+
+ //   codearray.push(elem1.outerHTML);
+  //  console.log(codearray);
+//  document.getElementById("debug").innerHTML = codearray;
+    
+    if (!elem1.innerHTML.replace(/\s/g, '').length) {
+    elem1.style.display = "none";}
+
+  if (document.getElementById("alignLeft").checked) {
+    elem1.style.textAlign = "left"
+  } else {
+      if (document.getElementById("alignRight").checked) {
+    elem1.style.textAlign = "right"
+  } }
+  if (document.getElementById("alignMiddle").checked) {
+    elem1.style.textAlign = "center"
+  }
+ 
+  
+}
+
+
+</script>
+<script>
+function newBr() {
+    var br1 = document.createElement("br");
+    document.getElementById("output").appendChild(br1);
+    br1.className = "added";
+    br1.id = "brid";
+    var br = document.createElement("button");
+    br.contentEditable = true;
+    var counter3 = 1;
+    br.innerHTML = "break " + counter3++;
+    br.style.outline = "0px grey solid";
+    br.style.border = "1px grey solid"
+    br.style.borderRadius = "5px";
+    br.style.backgroundColor = "white";
+    document.getElementById("elems").appendChild(br);
+
+}
+function clearall() {
+    document.getElementById("output").innerHTML = "";
+        document.getElementById("elems").innerHTML = "";
+
+    
+}
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+#debugid:hover {
+    border:2px #ACCEF7 solid;
+    cursor:pointer;
+}
+#brid:hover {
+    border:2px #ACCEF7 solid;
+    cursor:pointer;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 1px;
+  text-align: center;
+  font-size: 35px;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+   min-height:90vh;
+  height:auto;
+}
+
+/* Left and right column */
+.column.side {
+  width: 10%;
+  min-height:90vh;
+  height:auto;
+   
+}
+
+/* Middle column */
+.column.middle {
+  width: 79%;
+  border:1px grey solid;
+  height: 50px;
+  height: auto;
+  min-height:90vh;
+word-wrap: break-word;
+    white-space: normal
+  /*border-bottom:0px;*/
+  /*border-left:0px;*/
+  /*border-right:0px;*/
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+   
+<div id="debug"></div>
+<script>
+
+function show1() {    
+     document.getElementById("outbox").style.display = "";
+     
+    
+}
+function gencode() {
+    var codearray = document.getElementById("output").innerHTML;
+     codearray = codearray.replace(/(\r\n|\n|\r)/gm, "");
+     document.getElementById("outputcode").innerHTML = codearray;
+}
+</script>
+<div style="padding:0px; margin:0px">
+  <h2 style="padding:0px" id="title">Web Builder</h2>
+  <button id="gencode" onclick="show1(); gencode()">Generate HTML</button><button onclick="clearall()">reset</button>
+<div id="outbox" style="display:none">  code:<br><textarea readonly rows="4" style="width:100%" id="outputcode"></textarea></div>
+</div>
+
+<div class="row">
+    
+  <div class="column side" style="background-color:#aaa;"> 
+  <button id="clear" style="padding:3px">remove</button><br><br>
+Add
+  <br>
+  <button onclick="newText()">insert text</button>
+  
+<button>insert img</button>
+
+<button onclick="newBr()">insert br</button>
+<!---->
+<button>insert hr</button>
+<script>
+function chtml() {
+    var content2 = document.getElementById("output").innerHTML;
+      document.getElementById("output").innerHTML = content2 + document.getElementById("chtml").value
+}
+</script>
+<textarea style="width:100%;height:70px;" id="chtml" ><!-- custom html --></textarea>
+
+<button onclick="chtml()">add</button>
+<!---->
+  </div>
+  <div class="column middle" style="background-color:#bbb;padding: 0px; margin:1px;
+  background-color:white;">
+  <div id="output" style="" >
+      
+      </div>
+  
+  </div> 
+  <style>
+  input {
+      margin-top:7px;
+      margin-bottom:7px;
+  }
+  </style>
+  
+  <script>
+  
+  </script>
+  <div class="column side" style="background-color:#ccc;">Options
+  <br><br>
+  value:
+  <input id="textValue" style="width:100%" value="text"><br>
+  size:
+  <input type="number" id="textSize" style="width:80%" value="20" min="1" max="300"> px<br>
+  color:
+  <input type="color" id="textColor" name="" value="#000000"><br>
+  bg-color:
+     <script src="https://drive.google.com/uc?export=view&id=16lDLyDPc79jLmBtksDoOyoOagkyOHc73"></script>
+
+<script>
+jscolor.presets.default = {
+	previewPosition:'right', borderColor:'rgba(255,255,255,1)', 
+	padding:0
+    
+};
+</script>
+
+<input id="bgColor" value="rgba(255,255,255,0)" data-jscolor="{preset:'large', position:'right'}" style="margin-bottom: 10px;margin-top:5px;border: 1px grey solid;background: none;width:3px;">
+  <div>
+ </div>
+ 
+  align:<br>
+
+  <input type="radio" checked="true" name="align" id="alignLeft" value="left" />left<br><input type="radio" name="align" id="alignMiddle" value="center"/>center<br><input type="radio" name="align" id="alignRight" value="right"/>right
+margin(t,r,b,l): <input type="text" id="textmargin" style="width:100%">
+padding(t,r,b,l): <input type="text" id="textpadding" style="width:100%">
+
+ <textarea style="width:100%;height:60px" id="ccss">/* custom css */</textarea>
+  
+  </div>
+</div>
+<center>
+<!--<hr style="margin:0px;padding:0px;width:84%">-->
+</center>
+
+ <center>ELEMENTS:</center>
+<div class="footer" id="elems" style="padding-top:0px">
+  <p></p>
+</div>
+
+
+
+
+</body>
+</html>
