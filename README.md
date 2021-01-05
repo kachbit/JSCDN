@@ -8,3 +8,8 @@ Demo: [clck here](https://kachbit.github.io/WEB-BUILDER/).
 
 ![img](Capture.PNG "Web builder html")
 
+# Elements outline
+
+![img](Capture1.PNG "Web builder elements")
+
+
